@@ -44,6 +44,12 @@ export const App: React.FC = () => {
     }
   }, [errorMessage]);
 
+  useEffect(()=> {
+    if (!todos.length) {
+      setFilterStatus(Status.ALL)
+    }
+  }, [todos]);
+
   useEffect(() => {
     setWasAnyTodoCompleted(filteredTodos.some(todo => todo.completed));
   }, [filteredTodos]);
@@ -89,10 +95,6 @@ export const App: React.FC = () => {
       .then(() => {
         const updatedTodos = todos
           .filter(todo => !completedTodoIds.includes(todo.id));
-
-        if (!updatedTodos.length) {
-          setFilterStatus(Status.ALL)
-        }
 
         setTodos(updatedTodos);
         setFilteredTodos(updatedTodos);
