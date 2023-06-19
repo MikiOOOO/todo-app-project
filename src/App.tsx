@@ -90,6 +90,10 @@ export const App: React.FC = () => {
         const updatedTodos = todos
           .filter(todo => !completedTodoIds.includes(todo.id));
 
+        if (!updatedTodos.length) {
+          setFilterStatus(Status.ALL)
+        }
+
         setTodos(updatedTodos);
         setFilteredTodos(updatedTodos);
       })
@@ -183,7 +187,7 @@ export const App: React.FC = () => {
           )}
         </section>
 
-        {filteredTodos.length !== 0 && (
+        {todos.length !== 0 && (
           <footer className="todoapp__footer">
             <span className="todo-count">{uncompletedTodosCountInfo}</span>
             <Filter onFilterStatusChange={handleFilterStatusChange} />
