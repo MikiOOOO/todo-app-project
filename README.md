@@ -1,3 +1,2 @@
-# React Todoapp
-
-[-DEMO](-https://mikioooo.github.io/todo-app-project/)
+# React Todo App
+- [DEMO LINK](https://mikioooo.github.io/todo-app-project/)
